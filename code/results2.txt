@@ -1,0 +1,13 @@
+Baby 	277.27
+CDs 	354.66
+Consumer Electronics 	399.57
+DVDs 	467.3
+Garden 	420.46
+Health and Beauty 	158.28
+Men's Clothing 	386.54
+Music 	268.39
+Pet Supplies 	124.79
+Sporting Goods 	115.21
+Toys 	383.9
+Video Games 	134.95
+Women's Clothing 	68.05
