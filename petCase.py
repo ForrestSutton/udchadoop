@@ -12,3 +12,7 @@ class pet:
 doug = pet()  
 doug.number_of_legs = 4  
 doug.count_legs()
+
+nemo = pet()
+nemo.number_of_legs = 0
+nemo.count_legs()
