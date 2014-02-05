@@ -1,4 +1,5 @@
 #!/usr/bin/python
+#http://pastebin.com/YEvz5JnM
 
 import sys
 import re
