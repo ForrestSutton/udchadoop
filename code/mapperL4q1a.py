@@ -1,38 +1,23 @@
 #!/usr/bin/python
 import sys
 import csv
-import collections
+import re
+
+exp = re.compile("[\w\s]+[!.?]")
 
 def mapper():
     reader = csv.reader(sys.stdin, delimiter='\t')
     writer = csv.writer(sys.stdout, delimiter='\t', quotechar='"', quoting=csv.QUOTE_ALL)
-    top_ten = []
-    ten = {}
-    
+
     for line in reader:
-
         # YOUR CODE HERE
-        body = line[4]
- 
-        if (len(top_ten) < 10):
-            top_ten.append(int(body))
-            ten[int(body)] = line
-        elif (body > min(top_ten)):
-            min_num = min(top_ten)
-            top_ten.remove(min_num)
-            del ten[min_num]
-            ten[int(body)] = line
-            top_ten.append(int(body))
-       
-        #writer.writerow(line)
-    sorted_list = collections.OrderedDict(sorted(ten.items()))
-    top_ten.sort()
-
-   
-    #print sorted_list.values()
-      for line in sorted_list:
-        print line   
-
+        body= line[4]
+        if exp.search(body) == None:
+            writer.writerow(line)
+        if len(exp.findall(body))== 1: 
+           # if body.endswith((".","!","?")):
+	   sort(line) 
+           writer.writerow(line)
 
 test_text = """\"\"\t\"\"\t\"\"\t\"\"\t\"333\"\t\"\"
 \"\"\t\"\"\t\"\"\t\"\"\t\"88888888\"\t\"\"
@@ -47,6 +32,7 @@ test_text = """\"\"\t\"\"\t\"\"\t\"\"\t\"333\"\t\"\"
 \"\"\t\"\"\t\"\"\t\"\"\t\"7777777\"\t\"\"
 """
 
+
 # This function allows you to test the mapper with the provided test string
 def main():
     import StringIO
@@ -54,4 +40,5 @@ def main():
     mapper()
     sys.stdin = sys.__stdin__
 
-main()
+if __name__ == "__main__":
+    main()
