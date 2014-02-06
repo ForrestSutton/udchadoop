@@ -29,7 +29,7 @@ def mapper():
     top_ten.sort()
 
    
-    print sorted_list.values().
+    print sorted_list.values()
         
 
 
