@@ -1,23 +1,27 @@
 #!/usr/bin/python
-import sys
-import csv
-import re
 
-exp = re.compile("[\w\s]+[!.?]")
+# def bubbleSort(alist):
+#     for passnum in range(len(alist)-1,0,-1):
+#         for i in range(passnum):
+#             if alist[i]>alist[i+1]:
+#                 temp = alist[i]
+#                 alist[i] = alist[i+1]
+#                 alist[i+1] = temp
 
 def mapper():
     reader = csv.reader(sys.stdin, delimiter='\t')
     writer = csv.writer(sys.stdout, delimiter='\t', quotechar='"', quoting=csv.QUOTE_ALL)
-
-    for line in reader:
+    
+    for line in range(len(alist)-1,0,-1):
         # YOUR CODE HERE
-        body= line[4]
-        if exp.search(body) == None:
-            writer.writerow(line)
-        if len(exp.findall(body))== 1: 
-           # if body.endswith((".","!","?")):
-	   sort(line) 
-           writer.writerow(line)
+        for i in range(line):
+            if alist[i]>alist[i+1]:
+                temp = alist[1]
+                alist[1] = alst[i+1]
+                alist[i+1] = temp
+#bubble(alist)
+print(alist)
+#writer.writerow(alist)
 
 test_text = """\"\"\t\"\"\t\"\"\t\"\"\t\"333\"\t\"\"
 \"\"\t\"\"\t\"\"\t\"\"\t\"88888888\"\t\"\"
@@ -32,7 +36,6 @@ test_text = """\"\"\t\"\"\t\"\"\t\"\"\t\"333\"\t\"\"
 \"\"\t\"\"\t\"\"\t\"\"\t\"7777777\"\t\"\"
 """
 
-
 # This function allows you to test the mapper with the provided test string
 def main():
     import StringIO
@@ -40,5 +43,13 @@ def main():
     mapper()
     sys.stdin = sys.__stdin__
 
-if __name__ == "__main__":
-    main()
+main()
+
+
+
+
+
+
+#alist = [54,26,93,17,77,31,44,55,20]
+bubbleSort(alist)
+print(alist)
